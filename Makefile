@@ -1,5 +1,5 @@
 
-src	=	$(wildcard *.py)
+src	=	$(wildcard main.py Src/*.py)
 
 name  =		103cipher
 
@@ -13,6 +13,5 @@ clean:
 	    rm -f $(name)
 
 fclean: clean
-	    rm -f $(BINTESTNAME)
 
 re:		clean $(name)
