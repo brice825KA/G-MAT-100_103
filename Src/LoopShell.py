@@ -31,4 +31,4 @@ def LoopShell():
                 print(Fore.CYAN + "Decrypting..." + Fore.RESET)
                 decrypte(message, key)
         else:
-            print(Fore.RED + f"Unknown command: {command_parts[0]}. Type 'help' for a list of commands." + Fore.RESET)
+            print(Fore.RED + f"Unknown command: {command}. Type 'help' for a list of commands." + Fore.RESET)
