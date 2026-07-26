@@ -30,12 +30,20 @@ def find_min_square(n: int) -> int:
             break
     return square
 
-def create_matrix(src: list, cols: int, row: int) -> list:
+def create_matrix(src: list = None, cols: int = 0, row: int = 0) -> list:
     matrix = []
     for i in range(row):
         matrix.append([])
         for j in range(cols):
-            matrix[i].append(src[i * cols + j])
+            index = i * cols + j
+            if index < len(src):
+                matrix[i].append(ord(src[index]))
+            else:
+                matrix[i].append(0)
     return matrix
 
-
+def find_size(src:list) -> int:
+    size = len(src)
+    square = find_min_square(size)
+    row = int(math.sqrt(square))
+    return row

@@ -1,5 +1,5 @@
 
-from Src.matrix_identitie import gen_mat
+from Src.create_matrix import gen_mat
 
 def multimat(matone, mattwo):
     size = len(matone)
