@@ -1,6 +1,6 @@
 import math
 
-def gen_mat(size):
+def gen_mat(size: int = 0):
     new_mat = []
 
     for k in range(size):
@@ -8,7 +8,7 @@ def gen_mat(size):
         new_mat.append(ligne)
     return new_mat
 
-def matrix_identitie(mat_init):
+def matrix_identitie(mat_init: list) -> list:
     size = int(math.sqrt(len(mat_init)))
     new_mat = gen_mat(size)
     
@@ -30,16 +30,16 @@ def find_min_square(n: int) -> int:
             break
     return square
 
-def create_matrix(src: list = None, cols: int = 0, row: int = 0) -> list:
+def create_matrix(src: list or str = "", cols: int = 0) -> list:
     matrix = []
+    row = math.ceil(len(src) / cols)
     for i in range(row):
-        matrix.append([])
+        row_data = [0] * cols
         for j in range(cols):
             index = i * cols + j
             if index < len(src):
-                matrix[i].append(ord(src[index]))
-            else:
-                matrix[i].append(0)
+                row_data[j] = ord(src[index])
+        matrix.append(row_data)
     return matrix
 
 def find_size(src:list) -> int:
