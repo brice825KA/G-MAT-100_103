@@ -42,7 +42,7 @@ def create_matrix(src: list or str = "", cols: int = 0) -> list:
         matrix.append(row_data)
     return matrix
 
-def find_size(src:list) -> int:
+def find_size(src: list or str) -> int:
     size = len(src)
     square = find_min_square(size)
     row = int(math.sqrt(square))
