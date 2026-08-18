@@ -30,15 +30,22 @@ def find_min_square(n: int) -> int:
             break
     return square
 
-def create_matrix(src: list or str = "", cols: int = 0) -> list:
+def create_matrix(src: list or str = "", cols: int = 0, is_key_matrix: bool = False) -> list:
     matrix = []
-    row = math.ceil(len(src) / cols)
+    if is_key_matrix:
+        # Pad the key with null characters to make its length a perfect square
+        # for a square matrix of cols x cols
+        padded_src = str(src).ljust(cols * cols, '\0')
+        row = cols
+    else:
+        padded_src = src
+        row = math.ceil(len(src) / cols)
     for i in range(row):
         row_data = [0] * cols
         for j in range(cols):
             index = i * cols + j
-            if index < len(src):
-                row_data[j] = ord(src[index])
+            if index < len(padded_src):
+                row_data[j] = ord(padded_src[index])
         matrix.append(row_data)
     return matrix
 
